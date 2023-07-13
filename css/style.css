@@ -1,0 +1,280 @@
+/*Обнулення*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    line-height: 1;
+    height: 100vh;
+}
+
+.wrapper {
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1 1 auto;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+:focus {
+    outline: 0;
+}
+
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*Скидання css стилів*/
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #0F0F0F;
+}
+
+.header__container {
+    padding: 30px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__menu-items {
+    display: flex;
+    gap: 130px;
+}
+
+.header__menu-link {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.header__menu-link:hover {
+    opacity: .5;
+}
+
+/*Burger*/
+.header__burger {
+    display: none;
+}
+
+.header__burger::before {
+    top: 0;
+}
+
+.header__burger.active::before {
+    top: calc(50% - .125rem);
+    transform: rotate(-45deg);
+}
+
+.header__burger.active::after {
+    bottom: calc(50% - .125rem);
+    transform: rotate(45deg);
+}
+
+.header__burger.active span {
+    display: none;
+}
+
+.header__burger span {
+    top: calc(50% - .125rem);
+}
+
+.header__burger::after {
+    bottom: 0;
+}
+
+
+@media (max-width: 991.98px) {
+
+    .header__burger span,
+    .header__burger::after,
+    .header__burger::before {
+        content: "";
+        -webkit-transition: all .3s ease 0s;
+        -o-transition: all .3s ease 0s;
+        transition: all .3s ease 0s;
+        right: 0;
+        position: absolute;
+        width: 100%;
+        height: .25rem;
+        background-color: #fff;
+    }
+
+    .header__burger {
+        display: block;
+        position: relative;
+        width: 2.5rem;
+        height: 1.8rem;
+        cursor: pointer;
+        z-index: 5;
+        color: inherit;
+        background-color: inherit;
+        border: none;
+    }
+
+    .menu__body {
+        left: -120%;
+        z-index: 3;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0F0F0F;
+        padding: 120px 15px 30px 15px;
+        transition: left ease .3s;
+        overflow: auto;
+    }
+
+    .menu__body-items {
+        display: flex;
+        margin-top: 100px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin-right: 0;
+    }
+
+    .menu__body.active {
+        display: block;
+        left: 0;
+    }
+
+    .menu__menu-item {
+        list-style: none;
+
+    }
+
+    .header__menu-link {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 25px;
+        color: #FFFFFF;
+        font-size: 25px;
+    }
+
+    .header__menu-link:hover {
+        opacity: 1;
+    }
+    .header__menu-items {
+        gap: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin-right: 0;
+    }
+}
