@@ -22,11 +22,16 @@ new Swiper('.swiper', {
 });
 
 document.addEventListener('click', (e) => {
-  e.preventDefault()
   if (e.target.classList.contains('anchor')) {
+  e.preventDefault()
       anchorClick(e.target)
   }
+  if (e.target.classList.contains('btn__anchor')) {
+    e.preventDefault()
+        anchorClick(e.target.parentNode)
+    }
   if (e.target.classList.contains('header__burger')) {
+    e.preventDefault()
       toggleMenu()
   }
 })
