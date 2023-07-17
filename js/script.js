@@ -1,73 +1,48 @@
 /* Burger */
-const menuItems = document?.querySelectorAll('.menu__body-items');
+const menuItems = document?.querySelectorAll('.header__menu-items');
 const burger = document?.querySelector('.header__burger');
 const menu = document?.querySelector('.menu__body');
-const disableScroll = () => {
-    const fixBlocks = document?.querySelectorAll('.fixed-block');
-    const pagePosition = window.scrollY;
-    const paddingOffset = `${(window.innerWidth - vars.bodyEl.offsetWidth)}px`;
-
-    vars.htmlEl.style.scrollBehavior = 'none';
-    fixBlocks.forEach(el => { el.style.paddingRight = paddingOffset; });
-    vars.bodyEl.style.paddingRight = paddingOffset;
-    vars.bodyEl.classList.add('dis-scroll');
-    vars.bodyEl.dataset.position = pagePosition;
-    vars.bodyEl.style.top = `-${pagePosition}px`;
-}
-
-
-const enableScroll = () => {
-    const fixBlocks = document?.querySelectorAll('.fixed-block');
-    const body = document.body;
-    const pagePosition = parseInt(vars.bodyEl.dataset.position, 10);
-    fixBlocks.forEach(el => { el.style.paddingRight = '0px'; });
-    vars.bodyEl.style.paddingRight = '0px';
-  
-    vars.bodyEl.style.top = 'auto';
-    vars.bodyEl.classList.remove('dis-scroll');
-    window.scroll({
-      top: pagePosition,
-      left: 0
-    });
-    vars.bodyEl.removeAttribute('data-position');
-    vars.htmlEl.style.scrollBehavior = 'smooth';
-  }
-
-  
-burger?.addEventListener('click', (e) => {
-    console.log(menu);
-    e.preventDefault()
-    burger?.classList.toggle('active');
-    menu?.classList.toggle('active');
-
-    if (menu?.classList.contains('active')) {
-        disableScroll();
-    } else {
-        enableScroll();
+const body = document?.querySelector('body');
+new Swiper('.swiper', {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: 'true'
+  },
+  breakpoints: {
+    1189: {
+      slidesPerView: 4
     }
-});
-menuItems?.forEach(el => {
-    el.addEventListener('click', () => {
-        burger.classList.remove('active');
-        menu.classList.remove('active');
-        enableScroll();
-    });
+  }
 });
 
-new Swiper('.swiper',{
-    slidesPerView:1,
-    spaceBetween: 10,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: 'true'
-      },
-      breakpoints: {
-        1189: {
-            slidesPerView: 4
-        }
-      }
-});
+document.addEventListener('click', (e) => {
+  e.preventDefault()
+  if (e.target.classList.contains('anchor')) {
+      anchorClick(e.target)
+  }
+  if (e.target.classList.contains('header__burger')) {
+      toggleMenu()
+  }
+})
+function anchorClick(e) {
+  if (menu.classList.contains('active')) {
+    toggleMenu()
+  }
+  const blockId = e.getAttribute('href')
+  document.querySelector('' + blockId).scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+    inline: "nearest"
+  })
+}
+function toggleMenu() {
+  menu.classList.toggle('active');
+  burger.classList.toggle('active');
+  burger.classList.contains('active') ? document.body.classList.add('scroll--block') : document.body.classList.remove('scroll--block')
+}
