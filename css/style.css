@@ -151,7 +151,36 @@ body {
     color: #344bff;
     font-weight: 700;
 }
+.additional{
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 63.96px;
+}
+.additional__container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.additional__page--btn{
+    background-color: #344bff;
+    margin-top: 50px;
+    color: #fff;
+    font-size: 23px;
+    border-radius: 40px;
+    padding: 25px 35px;
+    cursor: pointer;
+    transition: all ease .3s;
+    border: none;
+}
+.additional__page--btn:hover {
+    background-color: #6776e2;
 
+}
 .social__list {
     display: flex;
     gap: 15px;
@@ -1169,6 +1198,7 @@ fill:#fff
     .team__content-item__img-wrapper:hover .team__content-item__social-networks {
         opacity: 1;
     }
+    
 }
 
 .team__content-item__img-wrapper:hover::before {
@@ -1210,6 +1240,7 @@ fill:#fff
         animation: slideLeft 9s linear infinite;
 
     }
+    
 }
 @media (max-width: 1433px) {
     .header__menu-items {
