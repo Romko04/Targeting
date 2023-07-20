@@ -784,7 +784,7 @@ color: #000;
     top: 8px;
     right: -46px;
     height: 53px;
-    background: 344bff;
+    background: #344bff;
     width: 240px;
     background-color: #344bff;
     transform: rotate(40deg);
@@ -1176,21 +1176,12 @@ fill:#fff
 }
 @media (max-width: 447px) {
     .price__content-item::after{
-        content: '-40%';
-        /* text-align: center; */
-        color: #fff;
-        align-items: center;
-        display: flex;
-        justify-content: center;
         font-size: 22px;
-        position: absolute;
         top: 8px;
         right: -46px;
         height: 35px;
-        background: 344bff;
         width: 200px;
-        background-color: #344bff;
-        transform: rotate(40deg);
+
     }
 }
 
