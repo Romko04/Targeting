@@ -1252,10 +1252,8 @@ fill:#fff
 
     }
     .footer__content::before {
-        animation: slideLeft 9s linear infinite;
-
-    }
-    
+        animation: slideLeft 34s linear infinite;
+    }    
 }
 @media (max-width: 1433px) {
     .header__menu-items {
